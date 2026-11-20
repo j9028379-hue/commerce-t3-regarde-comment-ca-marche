@@ -1,0 +1,47 @@
+{
+  "template_id": "COMMERCE-T3",
+  "reponses": {
+    "nom": "Atelier Kawa",
+    "produit": "Cafetière à piston",
+    "prix": "",
+    "demonstration": "Comment verser l’eau sur le café ?",
+    "quartier": "Cadjèhoun, Cotonou",
+    "whatsapp": "+1 202 555 0168"
+  },
+  "captures": [
+    {
+      "scene": "S1",
+      "valide": true,
+      "sha256": "822bc1bc2743826e6d6db5e3bc800ad3b0e76dad6b0b503bab920cf495e87847"
+    },
+    {
+      "scene": "S2",
+      "valide": true,
+      "sha256": "278b3f7d7f685afc615a612f0737e981c319751efa58276d23a53cb7e0e3f2c8"
+    },
+    {
+      "scene": "S3",
+      "valide": true,
+      "sha256": "51c47a4b7de42e0babab0a0c4372d6894a03fdf0d31ca948773bb9c399fb52e7"
+    },
+    {
+      "scene": "S4",
+      "valide": true,
+      "sha256": "1b2e54be092eac474c93e5606be1b5b35ed1639bcb51873caf531cd19f39aa36"
+    }
+  ],
+  "ecrans": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+}

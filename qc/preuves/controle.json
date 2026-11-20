@@ -1,0 +1,66 @@
+{
+  "template_id": "COMMERCE-T3",
+  "commit": "e6bca959dd9a9862dd10c2b28da549b65fce2a53",
+  "fps": 30,
+  "frames": 900,
+  "duree_s": 30,
+  "dimensions": [
+    720,
+    1280
+  ],
+  "codec": "h264",
+  "audio_streams": 0,
+  "sha256": "86ec8a6481654b090f2caed48eb93ba9964c87ece15749e9ea9298fdba4985dc",
+  "scenes": [
+    {
+      "scene": "S1",
+      "source": "822bc1bc2743826e6d6db5e3bc800ad3b0e76dad6b0b503bab920cf495e87847",
+      "debut": 0,
+      "fin_exclue": 180,
+      "premiere_image_source": 72,
+      "derniere_image_source": 215
+    },
+    {
+      "scene": "S2",
+      "source": "278b3f7d7f685afc615a612f0737e981c319751efa58276d23a53cb7e0e3f2c8",
+      "debut": 180,
+      "fin_exclue": 420,
+      "premiere_image_source": 4,
+      "derniere_image_source": 195
+    },
+    {
+      "scene": "S3",
+      "source": "51c47a4b7de42e0babab0a0c4372d6894a03fdf0d31ca948773bb9c399fb52e7",
+      "debut": 420,
+      "fin_exclue": 630,
+      "premiere_image_source": 2,
+      "derniere_image_source": 169
+    },
+    {
+      "scene": "S4",
+      "source": "1b2e54be092eac474c93e5606be1b5b35ed1639bcb51873caf531cd19f39aa36",
+      "debut": 630,
+      "fin_exclue": 900,
+      "premiere_image_source": 48,
+      "derniere_image_source": 263
+    }
+  ],
+  "ecrans": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "prix_facultatif_non_affiche": true,
+  "source_des_textes": "réponses du job navigateur + libellés du gabarit",
+  "empreinte_partition": "f9bfc16d155a53daa604db450f2fc916aa9eb0340b1b4d333f34af6c41e53095",
+  "grille_quatre_vues_meme_prise": true
+}
