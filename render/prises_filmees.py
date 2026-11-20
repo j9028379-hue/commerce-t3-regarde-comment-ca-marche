@@ -7,5 +7,9 @@ assert hashlib.sha256(p.read_bytes()).hexdigest()==m['sha256']
 for s in m['plans']:
     # Reframing optique seulement, aucune teinte, pas de dessin. Laisser le temps de voir la prise USB.
     vf=f"crop=trunc(ih*9/16/2)*2:ih:iw*{s['cx']}-ow/2:0,scale=720:1280,setsar=1,setpts=(PTS-STARTPTS)*{s['sortie']/s['extrait']},fps=30,tpad=stop_mode=clone:stop_duration=0.2"
+    if s['id']=='S4':
+        # Garder le produit entier sous le contact ; prolonger le bord du décor réel au-dessus.
+        vf="scale=-2:900,crop=720:900,pad=720:1280:0:380,fillborders=top=380:mode=smear," + vf.split('setsar=1,',1)[1]
+        vf += ',setsar=1'
     sp.run(['ffmpeg','-loglevel','error','-y','-ss',str(s['debut']),'-t',str(s['extrait']),'-i',str(p),'-map','0:v:0','-an','-vf',vf,'-frames:v',str(s['sortie']*30),'-c:v','libx264','-crf','16','-preset','veryfast','-pix_fmt','yuv420p',str(w/(s['id']+'.mp4'))],check=True)
 Path('livraison').mkdir(exist_ok=True); Path('livraison/plans-filmes.json').write_text(json.dumps(m,indent=2,ensure_ascii=False))
