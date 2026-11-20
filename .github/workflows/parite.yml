@@ -1,0 +1,48 @@
+name: Parité T1–T2 · paquet et parcours marchand T3
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  conformite:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Vérifier les contrats, l’état sonore et Cloudflare hors production
+        run: |
+          pip install opencv-python-headless numpy jsonschema
+          command -v ffmpeg && command -v ffprobe || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
+          npm install --prefix "$RUNNER_TEMP/tools" --ignore-scripts --no-audit puppeteer-core@23.11.1
+          python tools/site.py && git diff --exit-code docs/data.js
+          python qc/parite.py && python qc/test-audio-local.py
+          node shared/cloudflare-control-plane/test.mjs
+          (cd shared/cloudflare-control-plane && npx --yes wrangler@4.45.0 deploy --dry-run --outdir "$RUNNER_TEMP/bundle")
+      - name: Traverser les douze écrans et rendre un autre film marchand
+        run: |
+          export NODE_PATH="$RUNNER_TEMP/tools/node_modules"
+          python qc/temoin.py preparer
+          T3_REPONSES=qc/temoin.json node render/browser.cjs
+          python qc/temoin.py verifier
+      - name: Assembler et contrôler le paquet, y compris le rejet d’un paquet altéré
+        run: |
+          python package/livrer.py build paquet/COMMERCE-T3-1.0.0.zip
+          python qc/parite.py paquet/COMMERCE-T3-1.0.0.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paquet-T3-1.0.0
+          path: paquet/*.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: temoin-marchand
+          path: |
+            verification/sorties/*/*.json
+            verification/sorties/*/Film.mp4
+            verification/sorties/*/CREDITS.txt

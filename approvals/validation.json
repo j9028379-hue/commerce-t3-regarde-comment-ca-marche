@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "revision": 7,
+  "decision": "Validation propriétaire 20/20 ; textes ivoire et quatre mix, voix validée séparément.",
+  "reference_actions": "44718997021",
+  "master_sha256": "7e30f3150fece4183c1193d365025c5f2ed1047b0cb8919b5718c77766871804",
+  "voix_sha256": "8d23b1bf6558f424cca1aee23ca3ca1d4fe6689cfcdc8c54814915571ef45ed7"
+}

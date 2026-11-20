@@ -1,7 +1,3 @@
-# Audio T3 • pack musical 01
+# Audio T3 validé — profil 1.0.0
 
-Le catalogue référence `audio/profil.json`, avec les quatre extraits de 30 s effectivement approuvés. Ils commencent sur une attaque : les points d’entrée sont déjà appliqués, ne pas les appliquer à nouveau. Pas de piste Pixabay. Voir [les crédits obligatoires](CREDITS.md).
-
-Rotation séquentielle par profil : `rotation.livrer(db, profil, job_id, produire)`. Le callback reçoit le MP3 et le crédit à joindre au film. Il doit préparer une sortie idempotente par identifiant de job et lever une exception si le rendu ou ses contrôles échouent. Un échec ne consomme pas de piste. Le chemin SQLite doit être durable et commun aux livraisons (pas un fichier temporaire recréé par runner). La CI teste ce comportement ; aucun stockage de production n’est provisionné. Le chemin sonore reste bloqué tant que voix et mix ne sont pas approuvés. Ne pas modifier le film muet.
-
-Parité T1/T2 : même séparation catalogue/contrat/état, Worker de référence en lecture seule. T3 adopte l’ordre 1→2→3→4 plutôt que le tirage à exclusion de T2. Étape suivante : écoute voix seule puis mix avec baisse musicale sous la parole. Ni déploiement Cloudflare ni OTA à ce stade.
+Source canonique : `profil.json`. Quatre extraits de 30 s avec départ déjà appliqué, licences CC BY 4.0 et crédits dans `CREDITS.md`. Rotation séquentielle après livraison réussie, état SQLite durable. Le moteur `render/marchand.py` utilise le son des prises réelles ou le silence, jamais la narration de démonstration. La voix seule de référence et son calage sont dans `render/demo/voix/`, le comparatif sonore approuvé dans `render/demo/audition/`. Voir les conditions de déploiement dans le README racine.

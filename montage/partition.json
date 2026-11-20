@@ -1,7 +1,7 @@
 {
   "template_id": "COMMERCE-T3",
-  "version": "0.4.0",
-  "statut": "Adaptation visuelle candidate pour validation",
+  "version": "1.0.0",
+  "statut": "Validé : révision ivoire 07",
   "fps": 30,
   "dimensions": [
     720,
@@ -364,5 +364,6 @@
       "duree": 15,
       "type": "balayage_diagonal"
     }
-  ]
+  ],
+  "audio_profile": "afrobeat_demo_commerce"
 }

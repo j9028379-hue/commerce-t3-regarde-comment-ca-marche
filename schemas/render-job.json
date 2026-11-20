@@ -69,7 +69,37 @@
           "sha256"
         ],
         "additionalProperties": false
-      }
+      },
+      "prefixItems": [
+        {
+          "properties": {
+            "scene": {
+              "const": "S1"
+            }
+          }
+        },
+        {
+          "properties": {
+            "scene": {
+              "const": "S2"
+            }
+          }
+        },
+        {
+          "properties": {
+            "scene": {
+              "const": "S3"
+            }
+          }
+        },
+        {
+          "properties": {
+            "scene": {
+              "const": "S4"
+            }
+          }
+        }
+      ]
     },
     "ecrans": {
       "const": [
@@ -86,13 +116,17 @@
         11,
         12
       ]
+    },
+    "template_version": {
+      "const": "1.0.0"
     }
   },
   "required": [
     "template_id",
     "reponses",
     "captures",
-    "ecrans"
+    "ecrans",
+    "template_version"
   ],
   "additionalProperties": false
 }

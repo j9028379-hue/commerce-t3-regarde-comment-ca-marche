@@ -1,6 +1,6 @@
 {
   "id": "afrobeat_demo_commerce",
-  "statut": "musiques_validées_voix_et_mix_en_attente",
+  "statut": "validé",
   "rotation": "cycle_1_2_3_4_apres_succes",
   "pistes_approuvees": [
     1,
@@ -8,8 +8,8 @@
     3,
     4
   ],
-  "voix_approuvee": false,
-  "mix_approuve": false,
+  "voix_approuvee": true,
+  "mix_approuve": true,
   "pistes": [
     {
       "numero": 1,
@@ -63,5 +63,15 @@
       "preuve": "Amapiano Beats With Log Drum Groove by Alex Morgan is licensed under a Attribution 4.0 International License . 1. Amapiano Beats With Log Drum Groove by Al",
       "fichier": "audio/pistes/04-Amapiano-Beats-With-Log-Drum-Groove.mp3"
     }
-  ]
+  ],
+  "version": "1.0.0",
+  "voix_demo": "render/demo/voix/reference.wav",
+  "mix": {
+    "lufs": -16,
+    "fond_db": -3,
+    "sous_parole_db": -10,
+    "attaque_ms": 120,
+    "relachement_ms": 450,
+    "voix_marchand": "son des prises, silence accepté"
+  }
 }
