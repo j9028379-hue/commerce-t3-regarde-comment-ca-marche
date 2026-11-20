@@ -1,0 +1,46 @@
+[
+  {
+    "id": "100260",
+    "page": "https://mixkit.co/free-stock-video/french-press-brewing-fresh-coffee-on-a-wooden-table-100260/",
+    "url": "https://assets.mixkit.co/active_storage/video_items/100260/1722546709/100260-video-1080.mp4",
+    "sha256": "822bc1bc2743826e6d6db5e3bc800ad3b0e76dad6b0b503bab920cf495e87847",
+    "duree": 16.208333333333332,
+    "licence": "https://mixkit.co/license/#videoFree",
+    "scene": "S1",
+    "entree_s": 3,
+    "centre_x": 0.55
+  },
+  {
+    "id": "100259",
+    "page": "https://mixkit.co/free-stock-video/french-press-coffee-on-a-wooden-table-100259/",
+    "url": "https://assets.mixkit.co/active_storage/video_items/100259/1722546615/100259-video-1080.mp4",
+    "sha256": "278b3f7d7f685afc615a612f0737e981c319751efa58276d23a53cb7e0e3f2c8",
+    "duree": 19.333333333333332,
+    "licence": "https://mixkit.co/license/#videoFree",
+    "scene": "S2",
+    "entree_s": 0.2,
+    "centre_x": 0.51
+  },
+  {
+    "id": "100261",
+    "page": "https://mixkit.co/free-stock-video/brewing-fresh-coffee-in-a-french-press-100261/",
+    "url": "https://assets.mixkit.co/active_storage/video_items/100261/1722546923/100261-video-1080.mp4",
+    "sha256": "51c47a4b7de42e0babab0a0c4372d6894a03fdf0d31ca948773bb9c399fb52e7",
+    "duree": 22.541666666666668,
+    "licence": "https://mixkit.co/license/#videoFree",
+    "scene": "S3",
+    "entree_s": 0.1,
+    "centre_x": 0.54
+  },
+  {
+    "id": "100253",
+    "page": "https://mixkit.co/free-stock-video/pouring-coffee-into-cup-with-cinnamon-sticks-and-beans-100253/",
+    "url": "https://assets.mixkit.co/active_storage/video_items/100253/1722543131/100253-video-1080.mp4",
+    "sha256": "1b2e54be092eac474c93e5606be1b5b35ed1639bcb51873caf531cd19f39aa36",
+    "duree": 18.458333333333332,
+    "licence": "https://mixkit.co/license/#videoFree",
+    "scene": "S4",
+    "entree_s": 2,
+    "centre_x": 0.29
+  }
+]

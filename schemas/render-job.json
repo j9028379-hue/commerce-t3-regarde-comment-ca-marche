@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "template_id": {
+      "const": "COMMERCE-T3"
+    },
+    "reponses": {
+      "type": "object",
+      "properties": {
+        "nom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "produit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prix": {
+          "type": "string"
+        },
+        "quartier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "whatsapp": {
+          "type": "string",
+          "minLength": 1
+        },
+        "demonstration": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "nom",
+        "produit",
+        "quartier",
+        "whatsapp",
+        "demonstration"
+      ],
+      "additionalProperties": false
+    },
+    "captures": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene": {
+            "enum": [
+              "S1",
+              "S2",
+              "S3",
+              "S4"
+            ]
+          },
+          "valide": {
+            "const": true
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "scene",
+          "valide",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ecrans": {
+      "const": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  },
+  "required": [
+    "template_id",
+    "reponses",
+    "captures",
+    "ecrans"
+  ],
+  "additionalProperties": false
+}
