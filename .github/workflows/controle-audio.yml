@@ -1,0 +1,13 @@
+name: Pack musical T3 et rotation
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python qc/test-audio-local.py && node shared/cloudflare-control-plane/test.mjs
