@@ -13,3 +13,5 @@ Le parcours complet (et non la visite libre) peut désormais exporter `job.json`
 Pour conserver poignée, couvercle et base en scène 1, le moteur recale les bandes réellement filmées du panoramique de la prise 1 avant le raccord de couleur. La scène 3 est un versement continu ; dans ce jeu de rushes, le bec verseur et le filet d’eau sont visibles, pas la main entière.
 
 **[Regarder le premier film silencieux](https://j9028379-hue.github.io/commerce-t3-regarde-comment-ca-marche/film.html)** · [Publication et preuves](https://github.com/j9028379-hue/commerce-t3-regarde-comment-ca-marche/releases/tag/essai-silencieux-01).
+
+**[Révision 02 — lecteur avec ralenti sur la grille](https://j9028379-hue.github.io/commerce-t3-regarde-comment-ca-marche/film.html)** · [MP4 et contrôles](https://github.com/j9028379-hue/commerce-t3-regarde-comment-ca-marche/releases/tag/essai-silencieux-02). La révision 01 reste archivée dans sa publication.
