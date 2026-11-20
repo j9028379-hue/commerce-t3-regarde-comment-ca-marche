@@ -1,0 +1,40 @@
+name: Rendu serveur · Casa Taco · quatre mix inchangés
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  film:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Dépendances et sources vérifiées
+        run: |
+          command -v ffprobe && command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
+          pip install opencv-python-headless numpy jsonschema
+          npm install --prefix "$RUNNER_TEMP/tools" --ignore-scripts --no-audit puppeteer-core@23.11.1
+          python tools/site.py && git diff --exit-code docs/data.js
+          python render/prises_filmees.py
+      - name: Six réponses, quatre imports et douze écrans jusqu’au job
+        run: |
+          python tools/site.py && git diff --exit-code docs/data.js
+          NODE_PATH="$RUNNER_TEMP/tools/node_modules" node render/browser.cjs
+      - name: Animation lettre par lettre, montage H.264 et contrôle zéro piste audio
+        run: |
+          NODE_PATH="$RUNNER_TEMP/tools/node_modules" node render/titres.cjs
+          python render/film.py
+          python qc/champs.py
+          python render/audition_serif.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: T3-serif
+          path: livraison/
+          if-no-files-found: error
