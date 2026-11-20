@@ -1,0 +1,12 @@
+name: Vérifier le formulaire, les écrans et le motion design
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python tools/site.py && git diff --exit-code docs/data.js
+      - run: npm install --prefix "$RUNNER_TEMP/test" --ignore-scripts puppeteer-core@23.11.1
+      - run: NODE_PATH="$RUNNER_TEMP/test/node_modules" node qc/site.cjs

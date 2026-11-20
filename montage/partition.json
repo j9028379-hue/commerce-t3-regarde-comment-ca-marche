@@ -1,0 +1,144 @@
+{
+  "template_id": "COMMERCE-T3",
+  "version": "0.1.0",
+  "statut": "Adaptation visuelle candidate pour validation",
+  "fps": 30,
+  "dimensions": [
+    720,
+    1280
+  ],
+  "images": 900,
+  "scenes": [
+    {
+      "id": "S1",
+      "debut": 0,
+      "fin_exclue": 180,
+      "role": "Produit prêt"
+    },
+    {
+      "id": "S2",
+      "debut": 180,
+      "fin_exclue": 420,
+      "role": "Partie à utiliser"
+    },
+    {
+      "id": "S3",
+      "debut": 420,
+      "fin_exclue": 630,
+      "role": "Une démonstration"
+    },
+    {
+      "id": "S4",
+      "debut": 630,
+      "fin_exclue": 900,
+      "role": "Résultat réel"
+    }
+  ],
+  "raccords": [
+    {
+      "images": [
+        0,
+        27,
+        52,
+        77,
+        105
+      ],
+      "mode": "plein cadre, coupes franches sur axe constant",
+      "couleurs": [
+        "#992887",
+        "#a4ba9c",
+        "#147669",
+        "#476867",
+        "#a3bca7"
+      ]
+    },
+    {
+      "images": [
+        180
+      ],
+      "mode": "coupe franche vers grille 2 × 2 ; quatre cadrages du même plan S2, pas quatre produits"
+    },
+    {
+      "images": [
+        420
+      ],
+      "mode": "retour au plein cadre ; prise S3 continue sans répétition ni coupe sur le geste"
+    },
+    {
+      "images": [
+        630,
+        687,
+        744,
+        801
+      ],
+      "mode": "même résultat visible ; coupes de décor à axe constant, sans changer le produit ni simuler sa performance",
+      "couleurs": [
+        "#146e71",
+        "#869a9d",
+        "#90859f",
+        "#535399"
+      ]
+    }
+  ],
+  "texte": {
+    "famille_substitut": "Montserrat",
+    "graisse": 700,
+    "originale_identifiee": false,
+    "fonte_sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+    "couleur": "#ffffff",
+    "alignement": "centre",
+    "ordre": "gauche à droite puis ligne suivante",
+    "vague": {
+      "decalage_images": 1,
+      "duree_lettre_images": 8,
+      "deplacement_y": 38,
+      "rotation_degres": 24,
+      "echelle_depart": 0.25
+    },
+    "fenetres": [
+      {
+        "debut": 0,
+        "fin_exclue": 75,
+        "champ": "produit",
+        "entree": "coupe"
+      },
+      {
+        "debut": 77,
+        "fin_exclue": 175,
+        "champ": "demonstration",
+        "entree": "fondu"
+      },
+      {
+        "debut": 190,
+        "fin_exclue": 390,
+        "champ": "repere",
+        "entree": "vague"
+      },
+      {
+        "debut": 434,
+        "fin_exclue": 610,
+        "champ": "geste",
+        "entree": "vague"
+      },
+      {
+        "debut": 635,
+        "fin_exclue": 733,
+        "champ": "resultat",
+        "entree": "vague"
+      },
+      {
+        "debut": 744,
+        "fin_exclue": 799,
+        "champ": "prix",
+        "entree": "vague"
+      },
+      {
+        "debut": 804,
+        "fin_exclue": 900,
+        "champ": "contact",
+        "entree": "vague"
+      }
+    ],
+    "prix_absent": "aucun texte ni montant de remplacement"
+  }
+}
