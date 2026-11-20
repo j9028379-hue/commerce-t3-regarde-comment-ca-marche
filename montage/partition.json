@@ -1,6 +1,6 @@
 {
   "template_id": "COMMERCE-T3",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "statut": "Adaptation visuelle candidate pour validation",
   "fps": 30,
   "dimensions": [
@@ -252,41 +252,29 @@
       {
         "debut": 0,
         "fin_exclue": 75,
-        "champ": "produit",
+        "champ": "nom",
         "entree": "coupe"
       },
       {
-        "debut": 77,
-        "fin_exclue": 175,
-        "champ": "demonstration",
+        "debut": 78,
+        "fin_exclue": 176,
+        "champ": "produit",
         "entree": "fondu"
       },
       {
         "debut": 181,
-        "fin_exclue": 263,
-        "champ": "repere",
-        "entree": "vague"
-      },
-      {
-        "debut": 263,
         "fin_exclue": 410,
-        "champ": "detail",
+        "champ": "demonstration",
         "entree": "vague"
       },
       {
-        "debut": 420,
-        "fin_exclue": 625,
-        "champ": "geste",
+        "debut": 635,
+        "fin_exclue": 694,
+        "champ": "prix",
         "entree": "vague"
       },
       {
-        "debut": 637,
-        "fin_exclue": 692,
-        "champ": "resultat",
-        "entree": "vague"
-      },
-      {
-        "debut": 693,
+        "debut": 694,
         "fin_exclue": 780,
         "champ": "boutique",
         "entree": "vague"
@@ -322,18 +310,32 @@
       "alignement": "centré horizontalement dans le tiers supérieur",
       "ombre_locale_neutre": true
     },
-    "prix_si_renseigne": "sur une ligne sous le résultat"
+    "liaison_champs": {
+      "nom": [
+        "nom"
+      ],
+      "produit": [
+        "produit"
+      ],
+      "demonstration": [
+        "demonstration"
+      ],
+      "prix": [
+        "prix"
+      ],
+      "boutique": [
+        "nom",
+        "quartier"
+      ],
+      "contact": [
+        "whatsapp"
+      ]
+    }
   },
   "etalonnage": {
     "mode": "source_native",
     "teinte_ajoutee": false,
     "bordure_decorative": false
-  },
-  "libelles": {
-    "repere": "Regarde.\nJuste ici.",
-    "detail": "De plus près.",
-    "geste": "Un seul\ngeste.",
-    "resultat": "Et voilà.\nLe résultat."
   },
   "liaisons": [
     {

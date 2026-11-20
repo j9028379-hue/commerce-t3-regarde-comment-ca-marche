@@ -1,4 +1,4 @@
-name: COMMERCE-T3 · Film silencieux sur prises réelles
+name: COMMERCE-T3 · Film silencieux · entrées du formulaire
 on: workflow_dispatch
 permissions:
   contents: read
@@ -21,7 +21,8 @@ jobs:
           command -v ffprobe && command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
           pip install opencv-python-headless numpy jsonschema
           npm install --prefix "$RUNNER_TEMP/tools" --ignore-scripts --no-audit puppeteer-core@23.11.1
-          python render/sources.py
+          python tools/site.py && git diff --exit-code docs/data.js
+          NODE_PATH="$RUNNER_TEMP/tools/node_modules" node render/demo/prises-lampe.cjs
       - name: Six réponses, quatre imports et douze écrans jusqu’au job
         run: |
           python tools/site.py && git diff --exit-code docs/data.js
@@ -30,6 +31,7 @@ jobs:
         run: |
           NODE_PATH="$RUNNER_TEMP/tools/node_modules" node render/titres.cjs
           python render/film.py
+          python qc/champs.py
       - uses: actions/upload-artifact@v4
         with:
           name: COMMERCE-T3-silencieux
