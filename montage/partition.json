@@ -117,7 +117,7 @@
     "graisse": 400,
     "originale_identifiee": false,
     "fonte_sha256": "94b5fa7bac0f406cb3149512037f37ea21b55cecd732c3fd3a076260441399cd",
-    "couleur": "#ffffff",
+    "couleur": "#FFF8EE",
     "alignement": "centre",
     "ordre": "gauche à droite puis ligne suivante",
     "vague": {
@@ -289,26 +289,24 @@
     "prix_absent": "aucun texte ni montant de remplacement",
     "position": "centre de l’image ; deux lignes autour du raccord horizontal",
     "style": {
-      "taille_px": 66,
-      "largeur_max_px": 645,
-      "interligne_px": 80,
+      "taille_px": 75,
+      "largeur_max_px": 664,
+      "interligne_px": 84,
       "base_ligne_un_sur_deux_y": 617,
       "base_ligne_unique_y": 660,
-      "em_ref_px": 66,
-      "ombre": false
+      "em_ref_px": 66
     },
     "bande_export": {
       "haut": 64,
       "hauteur": 820
     },
     "fin_style": {
-      "taille_px": 77,
-      "largeur_max_px": 650,
+      "taille_px": 85,
+      "largeur_max_px": 665,
       "base_ligne_un_sur_deux_y": 210,
       "base_ligne_unique_y": 246,
       "interligne_px": 88,
-      "alignement": "centré horizontalement dans le tiers supérieur",
-      "ombre_locale_neutre": true
+      "alignement": "centré horizontalement dans le tiers supérieur"
     },
     "liaison_champs": {
       "nom": [
@@ -332,7 +330,18 @@
       ]
     },
     "fonte_fichier": "assets/DMSerifText-Regular.ttf",
-    "reference_typographique": "Capture « Tacos maison » fournie ; correspondance visuelle, non identifiée avec certitude."
+    "reference_typographique": "Capture « Tacos maison » fournie ; correspondance visuelle, non identifiée avec certitude.",
+    "relief": {
+      "ombre": "rgba(37,20,13,0.96)",
+      "decalage_x_px": 2,
+      "decalage_y_px": 4,
+      "flou_px": 2.5,
+      "liseré": "rgba(44,25,16,0.88)",
+      "largeur_trait_px": 3.2
+    },
+    "lignes_par_champ": {
+      "demonstration": 3
+    }
   },
   "etalonnage": {
     "mode": "source_native",
