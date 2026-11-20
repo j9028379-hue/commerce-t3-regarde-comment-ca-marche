@@ -2,16 +2,17 @@ from pathlib import Path as P
 import cv2 as cv,numpy as np,subprocess as sp,hashlib,json,os
 from jsonschema import validate
 from panorama import panorama
-from couleur import grade
+
 cv.setNumThreads(2);J=lambda p:json.loads(P(p).read_text());H=lambda p:hashlib.sha256(P(p).read_bytes()).hexdigest();plan=J('montage/partition.json');j=J('livraison/job.json');validate(j,J('schemas/render-job.json'));fps=plan['fps'];W,Y=plan['dimensions'];shots=J('render/demo/rushs.json');assert len({c['sha256'] for c in j['captures']})==4;assert all([x['scene']==y['id'] and x['duree_s']*fps==y['fin_exclue']-y['debut'] for x,y in zip([dict(scene='S'+str(s['scene']),duree_s=s['duree_s']) for s in J('capture-guide/ecrans.json')['ecrans'][::3]],plan['scenes'])]);out=P('livraison/COMMERCE-T3-Regarde-comment-ca-marche.mp4');enc=sp.Popen(['ffmpeg','-loglevel','error','-y','-f','rawvideo','-pix_fmt','bgr24','-s',f'{W}x{Y}','-r',str(fps),'-i','-','-an','-c:v','libx264','-preset','veryfast','-crf','18','-threads','3','-pix_fmt','yuv420p','-movflags','+faststart',str(out)],stdin=sp.PIPE);samples=[];scenes=[]
 def crop(img,w,h,cx,cy,z=1):
  ih,iw=img.shape[:2];cw=min(iw,ih*w/h)/z;ch=cw*h/w;l=int(np.clip(iw*cx-cw/2,0,iw-cw));t=int(np.clip(ih*cy-ch/2,0,ih-ch));return cv.resize(img[t:t+round(ch),l:l+round(cw)],(w,h),interpolation=cv.INTER_LINEAR)
-xx=np.abs(np.linspace(-1,1,W))[None,:];yy=np.linspace(0,1,Y)[:,None];mask=(.63*np.maximum(np.clip((xx-.61)/.39,0,1),np.clip((.16-yy)/.16,0,1)))[:,:,None].astype('float32');maps={}
+liaisons=J('work/liaisons.json');assert plan['etalonnage']['mode']=='source_native' and sum(bool(v) for v in liaisons)==sum(v['duree'] for v in plan['liaisons']);prev=None
 for k,(shot,sc,entry) in enumerate(zip(shots,plan['scenes'],j['captures'])):
  sid=sc['id'];p=P('work')/(sid+'.mp4');assert entry['scene']==sid==shot['scene'] and H(p)==entry['sha256']==shot['sha256'];cap=cv.VideoCapture(str(p));hz=cap.get(5);first,last=sc['debut'],sc['fin_exclue'];start=int(shot['entree_s']*hz);cap.set(1,start);cursor=start-1;ret=None
  if k==0:
   # Le source parcourt la cafetière verticalement : réunir les bandes réellement filmées.
-  pano=panorama(p);ph,pw=pano.shape[:2];pano=cv.copyMakeBorder(pano,130,180,0,0,cv.BORDER_REFLECT_101);pano[:130]=cv.GaussianBlur(pano[:130],(0,0),29);pano[-180:]=cv.GaussianBlur(pano[-180:],(0,0),29);hero=crop(pano,W,Y,.59,.50);hero=cv.GaussianBlur(hero,(0,0),0.45)
+  pano=panorama(p);hero=crop(pano,W,Y,.587,.5)
+
  for i in range(first,last):
   pos=start+int((i-first)*hz/fps)
   while cursor<pos:
@@ -20,12 +21,21 @@ for k,(shot,sc,entry) in enumerate(zip(shots,plan['scenes'],j['captures'])):
    f=np.zeros((Y,W,3),np.uint8)
    rule=plan['raccords'][1];d=rule['trait_px']//2;order=[e['ordre'] for e in rule['coupes_cases'] if e['image']<=i][-1]
    for h,idx in enumerate(order):
-    x,y,z=rule['cadrages'][idx];r=h//2*(Y//2+d);c=h%2*(W//2+d);hh,ww=Y//2-d,W//2-d;f[r:r+hh,c:c+ww]=grade(crop(ret,ww,hh,x,y,z),rule['couleurs'][h],k,plan['etalonnage'])
+    x,y,z=rule['cadrages'][idx];r=h//2*(Y//2+d);c=h%2*(W//2+d);hh,ww=Y//2-d,W//2-d;f[r:r+hh,c:c+ww]=crop(ret,ww,hh,x,y,z)
   else:
    f=hero.copy() if k==0 else crop(ret,W,Y,shot['centre_x'],.5)
-   rule=plan['raccords'][k];col=rule['couleurs'][sum(t<=i for t in rule['images'])-1];f=grade(f,col,k,plan['etalonnage'])
-  txt=cv.imread('work/titres/'+str(i)+'.png',cv.IMREAD_UNCHANGED);a=txt[:,:,3:4].astype('float32')/255;top=plan['texte']['bande_export']['haut'];roi=f[top:top+txt.shape[0]];roi[:]=roi*(1-a)+txt[:,:,:3]*a;enc.stdin.write(f.tobytes());
+  if i==last-1:prev=f.copy()
+  if liaisons[i]:
+   assert prev is not None;mask=np.zeros((Y,W),np.uint8)
+   for poly in liaisons[i]['polys']:
+    pts=np.int32(np.round(np.array(poly)*[W,Y]));
+    if cv.contourArea(pts)>0:cv.fillConvexPoly(mask,pts,255,lineType=cv.LINE_AA)
+   f=np.where((mask>127)[:,:,None],f,prev)
+  txt=cv.imread('work/titres/'+str(i)+'.png',cv.IMREAD_UNCHANGED);a=txt[:,:,3:4].astype('float32')/255;top=plan['texte']['bande_export']['haut'];roi=f[top:top+txt.shape[0]];roi[:]=roi*(1-a)+txt[:,:,:3]*a;
+  if i in (776,899):
+   y,x=np.nonzero(a[:,:,0]>.50);assert len(y)>0 and y.max()+top<Y*.38 and y.min()+top>75 and y.max()-y.min()>=85 and x.max()-x.min()>350;cv.imwrite('livraison/'+('Boutique' if i==776 else 'Contact')+'.jpg',f)
+  enc.stdin.write(f.tobytes());
   if i in (201,202,203,204):cv.imwrite('livraison/Onde-'+str(i)+'.jpg',f)
   if i in (18,120,203,390,510,626,698,877):samples.append(cv.resize(f,(144,256)))
  cap.release();scenes.append(dict(scene=sid,source=entry['sha256'],debut=first,fin_exclue=last,premiere_image_source=start,derniere_image_source=cursor))
-enc.stdin.close();assert enc.wait()==0;cv.imwrite('livraison/Planche.jpg',np.hstack(samples));probe=json.loads(sp.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(out)]));v,=probe['streams'];assert v['codec_type']=='video' and v['codec_name']=='h264' and v['nb_read_frames']=='900' and v['r_frame_rate']=='30/1' and (v['width'],v['height'])==(720,1280) and float(probe['format']['duration'])==30;assert (not j['reponses'].get('prix')) and not J('livraison/titres.json')['prix'];report=dict(template_id=j['template_id'],commit=os.environ['GITHUB_SHA'],fps=30,frames=900,duree_s=30,dimensions=[W,Y],codec='h264',audio_streams=0,sha256=H(out),scenes=scenes,ecrans=j['ecrans'],prix_facultatif_non_affiche=True,source_des_textes='réponses du job navigateur + libellés du gabarit',empreinte_partition=H('montage/partition.json'),grille_quatre_vues_meme_prise=True);P('livraison/controle.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
+enc.stdin.close();assert enc.wait()==0;cv.imwrite('livraison/Planche.jpg',np.hstack(samples));probe=json.loads(sp.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(out)]));v,=probe['streams'];assert v['codec_type']=='video' and v['codec_name']=='h264' and v['nb_read_frames']=='900' and v['r_frame_rate']=='30/1' and (v['width'],v['height'])==(720,1280) and float(probe['format']['duration'])==30;assert (not j['reponses'].get('prix')) and not J('livraison/titres.json')['prix'];report=dict(template_id=j['template_id'],commit=os.environ['GITHUB_SHA'],fps=30,frames=900,duree_s=30,dimensions=[W,Y],codec='h264',audio_streams=0,sha256=H(out),scenes=scenes,ecrans=j['ecrans'],prix_facultatif_non_affiche=True,source_des_textes='réponses du job navigateur + libellés du gabarit',teintes_ajoutees=False,transitions=plan['liaisons'],zone_contact='tiers supérieur',empreinte_partition=H('montage/partition.json'),grille_quatre_vues_meme_prise=True);P('livraison/controle.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))

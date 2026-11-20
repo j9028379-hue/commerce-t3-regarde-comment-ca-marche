@@ -1,6 +1,6 @@
 {
   "template_id": "COMMERCE-T3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "statut": "Adaptation visuelle candidate pour validation",
   "fps": 30,
   "dimensions": [
@@ -37,20 +37,9 @@
   "raccords": [
     {
       "images": [
-        0,
-        27,
-        52,
-        77,
-        105
+        0
       ],
-      "mode": "plein cadre, coupes franches sur axe constant",
-      "couleurs": [
-        "#963880",
-        "#93b7a8",
-        "#046761",
-        "#567572",
-        "#94b5ab"
-      ]
+      "mode": "Produit entier, panorama photographique sans marge"
     },
     {
       "images": [
@@ -58,12 +47,6 @@
       ],
       "mode": "coupe franche vers grille 2 × 2 ; quatre cadrages du même plan S2, pas quatre produits",
       "trait_px": 6,
-      "couleurs": [
-        "#9dbdaf",
-        "#8eaaa4",
-        "#086c69",
-        "#95b3aa"
-      ],
       "cadrages": [
         [
           0.48,
@@ -118,37 +101,15 @@
     },
     {
       "images": [
-        420,
-        450,
-        480,
-        510,
-        540
+        420
       ],
-      "mode": "Coupes chromatiques à axe constant ; temps du versement continu",
-      "couleurs": [
-        "#8e3f82",
-        "#9ab8aa",
-        "#08716f",
-        "#527574",
-        "#94afa9"
-      ]
+      "mode": "Plan continu sur le versement"
     },
     {
       "images": [
-        630,
-        683,
-        737,
-        790,
-        844
+        630
       ],
-      "mode": "même résultat visible ; coupes de décor à axe constant, sans changer le produit ni simuler sa performance",
-      "couleurs": [
-        "#973782",
-        "#577776",
-        "#07716c",
-        "#42437d",
-        "#384a81"
-      ]
+      "mode": "Résultat réel et textes au-dessus de la tasse"
     }
   ],
   "texte": {
@@ -319,19 +280,19 @@
         "entree": "vague"
       },
       {
-        "debut": 630,
-        "fin_exclue": 733,
+        "debut": 637,
+        "fin_exclue": 692,
         "champ": "resultat",
         "entree": "vague"
       },
       {
-        "debut": 744,
-        "fin_exclue": 799,
-        "champ": "prix",
+        "debut": 693,
+        "fin_exclue": 780,
+        "champ": "boutique",
         "entree": "vague"
       },
       {
-        "debut": 804,
+        "debut": 780,
         "fin_exclue": 900,
         "champ": "contact",
         "entree": "vague"
@@ -349,50 +310,46 @@
       "ombre": false
     },
     "bande_export": {
-      "haut": 438,
-      "hauteur": 442
-    }
+      "haut": 64,
+      "hauteur": 820
+    },
+    "fin_style": {
+      "taille_px": 77,
+      "largeur_max_px": 650,
+      "base_ligne_un_sur_deux_y": 210,
+      "base_ligne_unique_y": 246,
+      "interligne_px": 88,
+      "alignement": "centré horizontalement dans le tiers supérieur",
+      "ombre_locale_neutre": true
+    },
+    "prix_si_renseigne": "sur une ligne sous le résultat"
   },
   "etalonnage": {
-    "saturation_jaune": 0.03,
-    "teintes_jaunes_opencv": [
-      13,
-      41
-    ],
-    "intensite_decor": 0.85,
-    "intensite_decor_grille": 0.8,
-    "protection_produit": 0.96,
-    "contours_proteges_par_scene": [
-      [
-        0.52,
-        0.51,
-        0.43,
-        0.4
-      ],
-      [
-        0.52,
-        0.5,
-        0.45,
-        0.45
-      ],
-      [
-        0.53,
-        0.55,
-        0.46,
-        0.45
-      ],
-      [
-        0.43,
-        0.68,
-        0.53,
-        0.32
-      ]
-    ]
+    "mode": "source_native",
+    "teinte_ajoutee": false,
+    "bordure_decorative": false
   },
   "libelles": {
     "repere": "Regarde.\nJuste ici.",
     "detail": "De plus près.",
     "geste": "Un seul\ngeste.",
     "resultat": "Et voilà.\nLe résultat."
-  }
+  },
+  "liaisons": [
+    {
+      "debut": 180,
+      "duree": 18,
+      "type": "quatre_volets"
+    },
+    {
+      "debut": 420,
+      "duree": 17,
+      "type": "case_vers_plein_cadre"
+    },
+    {
+      "debut": 630,
+      "duree": 15,
+      "type": "balayage_diagonal"
+    }
+  ]
 }

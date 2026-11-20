@@ -15,3 +15,7 @@ Pour conserver poignée, couvercle et base en scène 1, le moteur recale les ban
 **[Regarder le premier film silencieux](https://j9028379-hue.github.io/commerce-t3-regarde-comment-ca-marche/film.html)** · [Publication et preuves](https://github.com/j9028379-hue/commerce-t3-regarde-comment-ca-marche/releases/tag/essai-silencieux-01).
 
 **[Révision 02 — lecteur avec ralenti sur la grille](https://j9028379-hue.github.io/commerce-t3-regarde-comment-ca-marche/film.html)** · [MP4 et contrôles](https://github.com/j9028379-hue/commerce-t3-regarde-comment-ca-marche/releases/tag/essai-silencieux-02). La révision 01 reste archivée dans sa publication.
+
+### Révision 03 · couleurs natives et contact lisible
+
+Aucun étalonnage de bord, aucun reflet ajouté : le moteur garde les couleurs des plans. Les quatre volets à 6 s, l’expansion d’une case à 14 s et le balayage oblique à 21 s utilisent exclusivement le plan sortant et le plan entrant. La géométrie vient de la partition, calculée une fois par le même code pour le site et le MP4. L’onde des lettres de la révision 02 est conservée. Dans le plan final, le commerce et le lieu précèdent l’écran WhatsApp ; le numéro reste centré horizontalement dans le tiers supérieur, en dehors de la tasse. Le contrôle vérifie la boîte des caractères effectivement rendus.
