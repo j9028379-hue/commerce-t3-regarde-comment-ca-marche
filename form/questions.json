@@ -1,0 +1,41 @@
+{
+  "titre": "PRÉPARE TA DÉMONSTRATION",
+  "champs": [
+    {
+      "cle": "nom",
+      "question": "Comment s'appelle ton commerce ?",
+      "exemple": "Boutique Élégance",
+      "obligatoire": true
+    },
+    {
+      "cle": "produit",
+      "question": "Quel produit veux-tu présenter ?",
+      "exemple": "Lampe rechargeable",
+      "obligatoire": true
+    },
+    {
+      "cle": "prix",
+      "question": "Quel est le prix de ce produit ?",
+      "exemple": "12 000 FCFA",
+      "obligatoire": false
+    },
+    {
+      "cle": "demonstration",
+      "question": "Qu'est-ce que tu veux montrer avec ce produit ?",
+      "exemple": "Comment allumer la lampe et régler sa lumière.",
+      "obligatoire": true
+    },
+    {
+      "cle": "quartier",
+      "question": "Où peut-on te trouver ?",
+      "exemple": "Cotonou, Akpakpa",
+      "obligatoire": true
+    },
+    {
+      "cle": "whatsapp",
+      "question": "Quel est ton numéro WhatsApp ?",
+      "exemple": "+229 XX XX XX XX",
+      "obligatoire": true
+    }
+  ]
+}
