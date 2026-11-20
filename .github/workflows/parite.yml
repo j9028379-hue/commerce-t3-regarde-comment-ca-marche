@@ -1,5 +1,8 @@
 name: Parité T1–T2 · paquet et parcours marchand T3
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
 permissions:
   contents: read
 jobs:

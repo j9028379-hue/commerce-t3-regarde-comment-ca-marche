@@ -15,7 +15,8 @@
       "cartes": "capture-guide/ecrans.json",
       "schema_job": "schemas/render-job.json",
       "paquet": "COMMERCE-T3-1.0.0.zip",
-      "tag": "commerce-t3-v1.0.0"
+      "tag": "commerce-t3-v1.0.0",
+      "validation": "approvals/validation.json"
     }
   ]
 }

@@ -4,5 +4,9 @@
   "decision": "Validation propriétaire 20/20 ; textes ivoire et quatre mix, voix validée séparément.",
   "reference_actions": "44718997021",
   "master_sha256": "7e30f3150fece4183c1193d365025c5f2ed1047b0cb8919b5718c77766871804",
-  "voix_sha256": "8d23b1bf6558f424cca1aee23ca3ca1d4fe6689cfcdc8c54814915571ef45ed7"
+  "voix_sha256": "8d23b1bf6558f424cca1aee23ca3ca1d4fe6689cfcdc8c54814915571ef45ed7",
+  "master_visuel": "docs/media/COMMERCE-T3-Boutique-Elegance-07.mp4",
+  "comparatif_sonore": "Boutique-Elegance-4-mix-Serif.mp4",
+  "comparatif_sonore_sha256": "c8cceb994f90c67a09f3596e6d0df1295d8db205e5a37f0a5f055393ab82545b",
+  "bande_son_sha256": "003db9a7fb14b52af65f285d2d965f580616df7493725cb38618b160c2d4f0ac"
 }
