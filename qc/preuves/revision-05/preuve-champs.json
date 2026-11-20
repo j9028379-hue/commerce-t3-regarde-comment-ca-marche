@@ -1,0 +1,51 @@
+{
+  "nom": {
+    "champs": [
+      "nom"
+    ],
+    "valeur": "Boutique Élégance",
+    "image_decodee": 73,
+    "pixels_lettres_opaques": 12719
+  },
+  "produit": {
+    "champs": [
+      "produit"
+    ],
+    "valeur": "Lampe rechargeable",
+    "image_decodee": 174,
+    "pixels_lettres_opaques": 13013
+  },
+  "demonstration": {
+    "champs": [
+      "demonstration"
+    ],
+    "valeur": "Comment allumer la lampe et régler sa lumière.",
+    "image_decodee": 408,
+    "pixels_lettres_opaques": 12611
+  },
+  "prix": {
+    "champs": [
+      "prix"
+    ],
+    "valeur": "12 000 FCFA",
+    "image_decodee": 692,
+    "pixels_lettres_opaques": 10901
+  },
+  "boutique": {
+    "champs": [
+      "nom",
+      "quartier"
+    ],
+    "valeur": "Boutique Élégance\nCotonou, Akpakpa",
+    "image_decodee": 778,
+    "pixels_lettres_opaques": 24157
+  },
+  "contact": {
+    "champs": [
+      "whatsapp"
+    ],
+    "valeur": "WhatsApp\n+229 XX XX XX XX",
+    "image_decodee": 898,
+    "pixels_lettres_opaques": 20085
+  }
+}

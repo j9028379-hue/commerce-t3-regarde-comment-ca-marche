@@ -1,0 +1,85 @@
+{
+  "template_id": "COMMERCE-T3",
+  "commit": "42b59f5e76cfb6090f0e869e5477b63931dcd6e7",
+  "fps": 30,
+  "frames": 900,
+  "duree_s": 30,
+  "dimensions": [
+    720,
+    1280
+  ],
+  "codec": "h264",
+  "audio_streams": 0,
+  "sha256": "532a66c79aae8520637d198a71013e9b9d99d06ecd9af6e47abaed4e0291042b",
+  "scenes": [
+    {
+      "scene": "S1",
+      "source": "1d09cf07a7bf5ce94f834b02364f40ab1734cf7c01dba7f60063afdb0ed72c5d",
+      "debut": 0,
+      "fin_exclue": 180,
+      "premiere_image_source": 0,
+      "derniere_image_source": 179
+    },
+    {
+      "scene": "S2",
+      "source": "7438afb3666e4176543ad11da0d43b1af64b0aed6bf1c235ee78bf10e62e9267",
+      "debut": 180,
+      "fin_exclue": 420,
+      "premiere_image_source": 0,
+      "derniere_image_source": 239
+    },
+    {
+      "scene": "S3",
+      "source": "2ff923df64b0392053b1682f37439f1814346a073fede547da726b25d7d2f0f5",
+      "debut": 420,
+      "fin_exclue": 630,
+      "premiere_image_source": 0,
+      "derniere_image_source": 209
+    },
+    {
+      "scene": "S4",
+      "source": "7eda70d3b37bcb063bbd22b3851c42e492dfa45e7a14e21f06832345f5716eff",
+      "debut": 630,
+      "fin_exclue": 900,
+      "premiere_image_source": 0,
+      "derniere_image_source": 269
+    }
+  ],
+  "ecrans": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "prix_affiche": true,
+  "source_des_textes": "liaison_champs du contrat appliquée au job navigateur ; aucun texte commercial fixe",
+  "teintes_ajoutees": false,
+  "transitions": [
+    {
+      "debut": 180,
+      "duree": 18,
+      "type": "quatre_volets"
+    },
+    {
+      "debut": 420,
+      "duree": 17,
+      "type": "case_vers_plein_cadre"
+    },
+    {
+      "debut": 630,
+      "duree": 15,
+      "type": "balayage_diagonal"
+    }
+  ],
+  "zone_contact": "tiers supérieur",
+  "empreinte_partition": "b449f37183907fc5f4522ad84f23705294dafd022d826a9cf356928b22eb848e",
+  "grille_quatre_vues_meme_prise": true
+}
