@@ -22,7 +22,7 @@ jobs:
           pip install opencv-python-headless numpy jsonschema
           npm install --prefix "$RUNNER_TEMP/tools" --ignore-scripts --no-audit puppeteer-core@23.11.1
           python tools/site.py && git diff --exit-code docs/data.js
-          NODE_PATH="$RUNNER_TEMP/tools/node_modules" node render/demo/prises-lampe.cjs
+          python render/prises_filmees.py
       - name: Six réponses, quatre imports et douze écrans jusqu’au job
         run: |
           python tools/site.py && git diff --exit-code docs/data.js
